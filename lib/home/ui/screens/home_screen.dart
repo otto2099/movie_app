@@ -140,20 +140,15 @@ class _MoviePoster extends StatelessWidget {
             ),
           ),
           RatingBar.builder(
-            itemSize: 15,
+            itemSize: 17,
             initialRating: movie.voteAverage / 2,
-            minRating: 1,
-            direction: Axis.horizontal,
             allowHalfRating: true,
-            itemCount: 5,
             itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
-            itemBuilder: (context, _) => const Icon(
+            itemBuilder: (_, __) => const Icon(
               Icons.star,
               color: Colors.amber,
             ),
-            onRatingUpdate: (rating) {
-              print(rating);
-            },
+            onRatingUpdate: (rating) {},
           ),
         ],
       ),
