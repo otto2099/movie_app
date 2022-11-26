@@ -16,4 +16,8 @@ class Enviroment {
   static get apiKey {
     return dotenv.env['API_KEY'] ?? 'No found';
   }
+
+  static get urlImage {
+    return dotenv.env['URL_IMAGE'] ?? 'No found';
+  }
 }
