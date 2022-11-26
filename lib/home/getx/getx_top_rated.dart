@@ -5,7 +5,7 @@ import 'package:movie_app/home/repository/top_rated_repository.dart';
 class TopRatedGetx extends GetxController {
   final _topRatedRepository = TopRatedRepository();
 
-  final topRatedList = <TopRatedModel>[].obs;
+  final topRatedList = <MovieModel>[].obs;
   @override
   void onInit() {
     super.onInit();

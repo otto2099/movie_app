@@ -4,5 +4,5 @@ import 'package:movie_app/home/repository/top_rated_api.dart';
 class TopRatedRepository {
   final _movieAPI = TopRatedAPI();
 
-  Future<TopRatedModel> getTopRated() async => await _movieAPI.getTopRated();
+  Future<MovieModel> getTopRated() async => await _movieAPI.getTopRated();
 }

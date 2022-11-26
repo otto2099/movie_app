@@ -6,8 +6,8 @@ import 'dart:convert';
 
 import 'package:movie_app/common/enviroment.dart';
 
-class TopRatedModel {
-  TopRatedModel({
+class MovieModel {
+  MovieModel({
     required this.page,
     required this.results,
     required this.totalPages,
@@ -19,10 +19,10 @@ class TopRatedModel {
   int totalPages;
   int totalResults;
 
-  factory TopRatedModel.fromJson(String str) =>
-      TopRatedModel.fromMap(json.decode(str));
+  factory MovieModel.fromJson(String str) =>
+      MovieModel.fromMap(json.decode(str));
 
-  factory TopRatedModel.fromMap(Map<String, dynamic> json) => TopRatedModel(
+  factory MovieModel.fromMap(Map<String, dynamic> json) => MovieModel(
         page: json["page"],
         results: List<TopRatedData>.from(
             json["results"].map((x) => TopRatedData.fromMap(x))),
