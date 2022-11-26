@@ -27,14 +27,18 @@ class MoviePoster extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 10),
-          Text(
-            movie.originalTitle,
-            overflow: TextOverflow.ellipsis,
-            maxLines: 2,
-            textAlign: TextAlign.left,
-            style: const TextStyle(
-              fontSize: 14,
-              color: Colors.white,
+          SizedBox(
+            width: 130,
+            height: 40,
+            child: Text(
+              movie.originalTitle,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 2,
+              textAlign: TextAlign.left,
+              style: const TextStyle(
+                fontSize: 14,
+                color: Colors.white,
+              ),
             ),
           ),
           RatingBar.builder(

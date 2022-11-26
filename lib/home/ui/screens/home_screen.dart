@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:movie_app/home/getx/getx_popular.dart';
 import 'package:movie_app/home/getx/getx_top_rated.dart';
 
 import 'package:movie_app/home/ui/widgets/custom_search.dart';
@@ -11,7 +12,9 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final getxController = Get.find<TopRatedGetx>();
+    final topRatedController = Get.find<TopRatedGetx>();
+    final popularController = Get.find<PopularGetx>();
+
     final ScrollController scrollController = ScrollController();
     return Scaffold(
       appBar: AppBar(
@@ -56,10 +59,9 @@ class HomeScreen extends StatelessWidget {
                     child: ListView.builder(
                       controller: scrollController,
                       scrollDirection: Axis.horizontal,
-                      itemCount:
-                          getxController.topRatedList.first.results.length,
+                      itemCount: popularController.popular.first.results.length,
                       itemBuilder: (_, int i) => MoviePoster(
-                        movie: getxController.topRatedList.first.results[i],
+                        movie: popularController.popular.first.results[i],
                       ),
                     ),
                   ),
@@ -90,9 +92,9 @@ class HomeScreen extends StatelessWidget {
                       controller: scrollController,
                       scrollDirection: Axis.horizontal,
                       itemCount:
-                          getxController.topRatedList.first.results.length,
+                          topRatedController.topRatedList.first.results.length,
                       itemBuilder: (_, int i) => MoviePoster(
-                        movie: getxController.topRatedList.first.results[i],
+                        movie: topRatedController.topRatedList.first.results[i],
                       ),
                     ),
                   ),

@@ -73,7 +73,7 @@ class TopRatedData {
 
   factory TopRatedData.fromMap(Map<String, dynamic> json) => TopRatedData(
         adult: json["adult"],
-        backdropPath: json["backdrop_path"],
+        backdropPath: json["backdrop_path"] ?? 'No found',
         genreIds: List<int>.from(json["genre_ids"].map((x) => x)),
         id: json["id"],
         originalLanguage: json["original_language"],
