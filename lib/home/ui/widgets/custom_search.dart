@@ -42,6 +42,9 @@ class CustomSearch extends StatelessWidget {
                   contentPadding: const EdgeInsets.all(16),
                 ),
               ),
+              Expanded(
+                child: ListView(),
+              ),
             ],
           ),
         ),

@@ -15,8 +15,12 @@ class PopularAPI {
   }
 
   Future<MovieModel> getPopular() async {
-    final bodyResponse = await _getJsonData('3/movie/popular');
-    final model = MovieModel.fromJson(bodyResponse);
-    return model;
+    try {
+      final bodyResponse = await _getJsonData('3/movie/popular');
+      final model = MovieModel.fromJson(bodyResponse);
+      return model;
+    } catch (e) {
+      return MovieModel(page: 0, results: [], totalPages: 0, totalResults: 0);
+    }
   }
 }

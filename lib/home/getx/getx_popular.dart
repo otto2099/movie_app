@@ -6,10 +6,15 @@ class PopularGetx extends GetxController {
   final _repository = PopularRepository();
 
   final popular = <MovieModel>[].obs;
-  @override
-  void onInit() {
-    super.onInit();
+
+  PopularGetx() {
     getPopularGetx();
+  }
+
+  @override
+  Future<void> onInit() async {
+    super.onInit();
+    await getPopularGetx();
   }
 
   Future<void> getPopularGetx() async {

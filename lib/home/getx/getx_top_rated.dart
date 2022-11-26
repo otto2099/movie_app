@@ -7,13 +7,14 @@ class TopRatedGetx extends GetxController {
 
   final topRatedList = <MovieModel>[].obs;
   @override
-  void onInit() {
+  Future<void> onInit() async {
     super.onInit();
-    getTopRatedGetx();
+    await getTopRatedGetx();
   }
 
-  Future<void> getTopRatedGetx() async {
+  Future<MovieModel> getTopRatedGetx() async {
     final resultTopRated = await _topRatedRepository.getTopRated();
     topRatedList.add(resultTopRated);
+    return resultTopRated;
   }
 }
