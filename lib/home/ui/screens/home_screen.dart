@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:get/get.dart';
+import 'package:movie_app/home/getx/getx_top_rated.dart';
+import 'package:movie_app/home/models/top_rated_model.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final getxController = Get.find<TopRatedGetx>();
+    final ScrollController scrollController = ScrollController();
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -44,11 +50,16 @@ class HomeScreen extends StatelessWidget {
                           ))
                     ],
                   ),
-                  Row(
-                    children: const [
-                      _MoviePoster(),
-                      _MoviePoster(),
-                    ],
+                  Expanded(
+                    child: ListView.builder(
+                      controller: scrollController,
+                      scrollDirection: Axis.horizontal,
+                      itemCount:
+                          getxController.topRatedList.first.results.length,
+                      itemBuilder: (_, int i) => _MoviePoster(
+                        movie: getxController.topRatedList.first.results[i],
+                      ),
+                    ),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -72,11 +83,16 @@ class HomeScreen extends StatelessWidget {
                           ))
                     ],
                   ),
-                  Row(
-                    children: const [
-                      _MoviePoster(),
-                      _MoviePoster(),
-                    ],
+                  Expanded(
+                    child: ListView.builder(
+                      controller: scrollController,
+                      scrollDirection: Axis.horizontal,
+                      itemCount:
+                          getxController.topRatedList.first.results.length,
+                      itemBuilder: (_, int i) => _MoviePoster(
+                        movie: getxController.topRatedList.first.results[i],
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -91,8 +107,9 @@ class HomeScreen extends StatelessWidget {
 class _MoviePoster extends StatelessWidget {
   const _MoviePoster({
     Key? key,
+    required this.movie,
   }) : super(key: key);
-
+  final TopRatedData movie;
   @override
   Widget build(BuildContext context) {
     final ScrollController scrollController = new ScrollController();
@@ -103,33 +120,41 @@ class _MoviePoster extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(15),
-            child: const FadeInImage(
-              placeholder: AssetImage('assets/no-image.jpg'),
-              image: NetworkImage('https://picsum.photos/250?image=9'),
+            child: FadeInImage(
+              placeholder: const AssetImage('assets/no-image.jpg'),
+              image: NetworkImage(movie.fullPathImg),
               width: 130,
               height: 170,
               fit: BoxFit.cover,
             ),
           ),
           const SizedBox(height: 10),
-          const Text(
-            'Mac Studio',
+          Text(
+            movie.originalTitle,
             overflow: TextOverflow.ellipsis,
             maxLines: 2,
             textAlign: TextAlign.left,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 14,
               color: Colors.white,
             ),
           ),
-          Row(
-            children: [
-              Icon(
-                Icons.star,
-                color: Colors.yellowAccent,
-              ),
-            ],
-          )
+          RatingBar.builder(
+            itemSize: 15,
+            initialRating: movie.voteAverage / 2,
+            minRating: 1,
+            direction: Axis.horizontal,
+            allowHalfRating: true,
+            itemCount: 5,
+            itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+            itemBuilder: (context, _) => const Icon(
+              Icons.star,
+              color: Colors.amber,
+            ),
+            onRatingUpdate: (rating) {
+              print(rating);
+            },
+          ),
         ],
       ),
     );
