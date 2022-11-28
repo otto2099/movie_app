@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
+import 'package:movie_app/details/getx/credits_binding.dart';
 import 'package:movie_app/details/ui/screens/details_screen.dart';
 import 'package:movie_app/home/getx/home_binding.dart';
 import 'package:movie_app/home/ui/screens/check_screen.dart';
@@ -33,9 +34,9 @@ class MyApp extends StatelessWidget {
           binding: HomeBinding(),
         ),
         GetPage(
-          name: '/details',
-          page: () => const DetailsScreen(),
-        ),
+            name: '/details',
+            page: () => const DetailsScreen(),
+            binding: CreditsBinding()),
       ],
     );
   }
