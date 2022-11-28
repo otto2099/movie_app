@@ -8,6 +8,8 @@ import 'package:movie_app/home/models/top_rated_model.dart';
 import 'package:movie_app/home/ui/widgets/movie_items.dart';
 
 import 'package:movie_app/home/ui/widgets/movie_poster.dart';
+import 'package:movie_app/theme/app_theme.dart';
+import 'package:movie_app/theme/change_theme.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -19,6 +21,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final topRatedController = Get.find<TopRatedGetx>();
   final popularController = Get.find<PopularGetx>();
+  final theme = Get.find<ChangeTheme>();
+
   final searchService = Get.find<SearchGetx>();
 
   TextEditingController searchController = TextEditingController();
@@ -59,17 +63,27 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(95, 161, 209, 10),
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: const Color.fromRGBO(95, 161, 209, 10),
         title: const Text(''),
+        actions: [
+          Switch(
+            value: theme.isDark,
+            // title: const Icon(Icons.dark_mode),
+            onChanged: (value) {
+              Get.changeTheme(value ? AppTheme.darkTheme : AppTheme.lightTheme);
+              theme.changeTheme(value);
+              print(Get.isDarkMode);
+              setState(() {});
+            },
+          )
+        ],
       ),
       body: Column(
         children: [
           Container(
             // 95	161	209
-            color: const Color.fromRGBO(95, 161, 209, 10),
+            // color: const Color.fromRGBO(95, 161, 209, 10),
             padding: const EdgeInsets.symmetric(vertical: 10),
             child: Center(
               child: Padding(
