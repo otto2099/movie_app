@@ -68,6 +68,11 @@ class TopRatedData {
     return 'https://i.stack.imgur.com/GNhxO.png';
   }
 
+  get fullBackdropPath {
+    if (backdropPath.isNotEmpty) return '${Enviroment.urlImage}${backdropPath}';
+    return 'https://i.stack.imgur.com/GNhxO.png';
+  }
+
   factory TopRatedData.fromJson(String str) =>
       TopRatedData.fromMap(json.decode(str));
 

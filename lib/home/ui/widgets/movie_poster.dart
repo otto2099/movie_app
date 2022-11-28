@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
-import 'package:movie_app/details/ui/screens/details_screen.dart';
 import 'package:movie_app/home/models/top_rated_model.dart';
 
 class MoviePoster extends StatelessWidget {
@@ -19,7 +18,7 @@ class MoviePoster extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           GestureDetector(
-            onTap: () => Get.toNamed('/details'),
+            onTap: () => Get.toNamed('/details', arguments: movie),
             // onTap: () => Get.to(const DetailsScreen()),
 
             child: ClipRRect(

@@ -5,6 +5,7 @@ import 'package:movie_app/home/getx/getx_popular.dart';
 import 'package:movie_app/home/getx/getx_search.dart';
 import 'package:movie_app/home/getx/getx_top_rated.dart';
 import 'package:movie_app/home/models/top_rated_model.dart';
+import 'package:movie_app/home/ui/widgets/movie_items.dart';
 
 import 'package:movie_app/home/ui/widgets/movie_poster.dart';
 
@@ -44,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
             return ListView.builder(
                 itemCount: movies.results.length,
-                itemBuilder: (_, int i) => _MovieItem(movies.results[i]));
+                itemBuilder: (_, int i) => MovieItem(movies.results[i]));
           },
         ),
       );
@@ -219,29 +220,6 @@ class _CustomBody extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-}
-
-class _MovieItem extends StatelessWidget {
-  final TopRatedData movie;
-
-  const _MovieItem(this.movie);
-  @override
-  Widget build(BuildContext context) {
-    // movie.heroId = 'searh-${movie.id}';
-    return ListTile(
-      leading: FadeInImage(
-        image: NetworkImage(movie.fullPathImg),
-        placeholder: const AssetImage('assets/no-image.jpg'),
-        width: 50,
-        fit: BoxFit.contain,
-      ),
-      title: Text(movie.title),
-      subtitle: Text(movie.originalTitle),
-      onTap: () {
-        // Navigator.pushNamed(context, 'details', arguments: movie);
-      },
     );
   }
 }
