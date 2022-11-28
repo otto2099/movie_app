@@ -92,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   children: [
                     const Text(
-                      'Hello, whatdo you want to watch ?',
+                      'Hello, what do you want to watch ?',
                       style: TextStyle(
                         fontSize: 32,
                         color: Colors.white,
