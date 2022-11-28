@@ -28,7 +28,7 @@ class CustomBody extends StatelessWidget {
           color: const Color.fromRGBO(39, 47, 61, 5),
           child: Column(
             children: [
-              const SizedBox(height: 30),
+              const SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
