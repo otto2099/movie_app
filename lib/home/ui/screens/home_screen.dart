@@ -35,7 +35,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   showWidget() {
     if (searchActive) {
-      print(searchController.text);
       return Expanded(
         child: StreamBuilder(
           stream: searchService.suggestionStream,
@@ -60,6 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromRGBO(95, 161, 209, 10),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: const Color.fromRGBO(95, 161, 209, 10),
@@ -122,10 +122,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           // 39	47	61
           showWidget()
-          // _CustomBody(
-          //     scrollController: scrollController,
-          //     popularController: popularController,
-          //     topRatedController: topRatedController)
         ],
       ),
     );
@@ -147,77 +143,84 @@ class _CustomBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Container(
-        width: double.infinity,
-        color: const Color.fromRGBO(39, 47, 61, 5),
-        child: Column(
-          children: [
-            const SizedBox(height: 30),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                const Text(
-                  'RECOMENED FOR YOU ',
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.white,
+      child: ClipRRect(
+        borderRadius: const BorderRadius.only(
+          topRight: Radius.circular(20),
+          topLeft: Radius.circular(20),
+        ),
+        child: Container(
+          width: double.infinity,
+          color: const Color.fromRGBO(39, 47, 61, 5),
+          child: Column(
+            children: [
+              const SizedBox(height: 30),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  const Text(
+                    'RECOMENED FOR YOU ',
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.white,
+                    ),
+                  ),
+                  TextButton(
+                      onPressed: () {},
+                      child: const Text(
+                        'See all',
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.grey,
+                        ),
+                      ))
+                ],
+              ),
+              Expanded(
+                child: ListView.builder(
+                  controller: scrollController,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: popularController.popular.first.results.length,
+                  itemBuilder: (_, int i) => MoviePoster(
+                    movie: popularController.popular.first.results[i],
                   ),
                 ),
-                TextButton(
-                    onPressed: () {},
-                    child: const Text(
-                      'See all',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.grey,
-                      ),
-                    ))
-              ],
-            ),
-            Expanded(
-              child: ListView.builder(
-                controller: scrollController,
-                scrollDirection: Axis.horizontal,
-                itemCount: popularController.popular.first.results.length,
-                itemBuilder: (_, int i) => MoviePoster(
-                  movie: popularController.popular.first.results[i],
-                ),
               ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                const Text(
-                  'TOP RATED ',
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.white,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  const Text(
+                    'TOP RATED ',
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.white,
+                    ),
+                  ),
+                  TextButton(
+                      onPressed: () {},
+                      child: const Text(
+                        'See all',
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.grey,
+                        ),
+                      ))
+                ],
+              ),
+              Expanded(
+                child: ListView.builder(
+                  controller: scrollController,
+                  scrollDirection: Axis.horizontal,
+                  itemCount:
+                      topRatedController.topRatedList.first.results.length,
+                  itemBuilder: (_, int i) => MoviePoster(
+                    movie: topRatedController.topRatedList.first.results[i],
                   ),
                 ),
-                TextButton(
-                    onPressed: () {},
-                    child: const Text(
-                      'See all',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.grey,
-                      ),
-                    ))
-              ],
-            ),
-            Expanded(
-              child: ListView.builder(
-                controller: scrollController,
-                scrollDirection: Axis.horizontal,
-                itemCount: topRatedController.topRatedList.first.results.length,
-                itemBuilder: (_, int i) => MoviePoster(
-                  movie: topRatedController.topRatedList.first.results[i],
-                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
