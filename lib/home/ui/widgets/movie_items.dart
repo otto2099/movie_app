@@ -9,7 +9,6 @@ class MovieItem extends StatelessWidget {
   const MovieItem(this.movie);
   @override
   Widget build(BuildContext context) {
-    // movie.heroId = 'searh-${movie.id}';
     return ListTile(
       leading: FadeInImage(
         image: NetworkImage(movie.fullPathImg),

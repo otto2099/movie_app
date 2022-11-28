@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
+import 'package:movie_app/details/getx/getx_credits.dart';
 import 'package:movie_app/home/models/top_rated_model.dart';
 
 class MoviePoster extends StatelessWidget {
@@ -11,14 +12,15 @@ class MoviePoster extends StatelessWidget {
   final TopRatedData movie;
   @override
   Widget build(BuildContext context) {
-    final ScrollController scrollController = ScrollController();
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           GestureDetector(
-            onTap: () => Get.toNamed('/details', arguments: movie),
+            onTap: () {
+              Get.toNamed('/details', arguments: movie);
+            },
             // onTap: () => Get.to(const DetailsScreen()),
 
             child: ClipRRect(
