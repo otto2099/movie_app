@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
       title: 'Material App',
       initialRoute: 'check',
       theme: preferences.theme,
+      themeMode: preferences.themeMode,
       getPages: [
         GetPage(
           name: '/check',

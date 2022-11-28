@@ -8,5 +8,7 @@ class ChangeTheme extends GetxController {
 
   bool get isDark => box.read('darkmode') ?? false;
   ThemeData get theme => isDark ? AppTheme.lightTheme : AppTheme.darkTheme;
+  ThemeMode get themeMode => isDark ? ThemeMode.light : ThemeMode.light;
+
   void changeTheme(bool val) => box.write('darkmode', val);
 }
