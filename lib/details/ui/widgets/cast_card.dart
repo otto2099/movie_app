@@ -10,7 +10,7 @@ class CastCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 90,
-      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+      margin: const EdgeInsets.symmetric(horizontal: 10),
       child: Column(
         // crossAxisAlignment: CrossAxisAlignment.start,
         children: [

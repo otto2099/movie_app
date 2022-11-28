@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:movie_app/details/getx/getx_credits.dart';
+import 'package:movie_app/details/getx/getx_details.dart';
 import 'package:movie_app/details/ui/widgets/casting_card.dart';
 import 'package:movie_app/details/ui/widgets/custom__overview.dart';
 import 'package:movie_app/details/ui/widgets/custom_app_bar.dart';
 import 'package:movie_app/details/ui/widgets/custom_title.dart';
+import 'package:movie_app/details/ui/widgets/details.dart';
 import 'package:movie_app/home/models/top_rated_model.dart';
 
 class DetailsScreen extends StatefulWidget {
@@ -15,8 +17,6 @@ class DetailsScreen extends StatefulWidget {
 }
 
 class _DetailsScreenState extends State<DetailsScreen> {
-  final creditsController = Get.find<CreditsGetx>();
-
   @override
   void initState() {
     // TODO: implement initState
@@ -43,6 +43,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
                   movie: movie,
                 ),
                 CastingCard(
+                  movieId: movie.id,
+                ),
+                Details(
                   movieId: movie.id,
                 ),
               ],

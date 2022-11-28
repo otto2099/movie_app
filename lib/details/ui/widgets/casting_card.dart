@@ -26,7 +26,7 @@ class CastingCard extends StatelessWidget {
 
           if (snapshot.data!.cast.isNotEmpty) {
             return SizedBox(
-              height: 200,
+              height: 120,
               child: ListView.builder(
                 controller: scrollController,
                 scrollDirection: Axis.horizontal,
