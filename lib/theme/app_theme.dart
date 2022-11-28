@@ -6,17 +6,12 @@ class AppTheme {
 
   static final ThemeData lightTheme = ThemeData.light().copyWith(
     primaryColor: primaryLigthTheme,
-    // AppBar theme
-    appBarTheme: const AppBarTheme(
-      color: primaryLigthTheme,
-      elevation: 0,
-    ),
+    appBarTheme: const AppBarTheme(color: primaryLigthTheme, elevation: 0),
     scaffoldBackgroundColor: primaryLigthTheme,
   );
 
   static final ThemeData darkTheme = ThemeData.dark().copyWith(
     primaryColor: primaryDarkTheme,
-    // AppBar theme
     appBarTheme: const AppBarTheme(color: primaryDarkTheme, elevation: 0),
     scaffoldBackgroundColor: primaryDarkTheme,
   );
