@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:movie_app/details/getx/getx_credits.dart';
-import 'package:movie_app/details/getx/getx_details.dart';
 import 'package:movie_app/details/ui/widgets/casting_card.dart';
 import 'package:movie_app/details/ui/widgets/custom__overview.dart';
 import 'package:movie_app/details/ui/widgets/custom_app_bar.dart';
@@ -19,7 +17,6 @@ class DetailsScreen extends StatefulWidget {
 class _DetailsScreenState extends State<DetailsScreen> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
   }
 

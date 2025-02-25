@@ -3,7 +3,7 @@ import 'package:movie_app/home/models/top_rated_model.dart';
 import 'package:http/http.dart' as http;
 
 class TopRatedAPI {
-  String _language = 'es-ES';
+  final String _language = 'es-ES';
   Future<String> _getJsonData(String endpoint, [int page = 1]) async {
     var url = Uri.https(Enviroment.ulrBase, endpoint, {
       'api_key': Enviroment.apiKey,

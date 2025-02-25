@@ -4,7 +4,7 @@ import 'package:movie_app/details/models/credits_model.dart';
 class CastCard extends StatelessWidget {
   final Cast cast;
 
-  const CastCard({required this.cast});
+  const CastCard({super.key, required this.cast});
 
   @override
   Widget build(BuildContext context) {

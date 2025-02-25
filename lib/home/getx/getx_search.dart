@@ -15,8 +15,7 @@ class SearchGetx extends GetxController {
   final StreamController<MovieModel> _suggestionSteamController =
       StreamController.broadcast();
 
-  Stream<MovieModel> get suggestionStream =>
-      this._suggestionSteamController.stream;
+  Stream<MovieModel> get suggestionStream => _suggestionSteamController.stream;
 
   void getSuggestionsByQuery(String searchTerm) {
     debouncer.value = '';

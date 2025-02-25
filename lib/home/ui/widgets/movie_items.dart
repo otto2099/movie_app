@@ -6,7 +6,7 @@ import 'package:movie_app/home/models/top_rated_model.dart';
 class MovieItem extends StatelessWidget {
   final TopRatedData movie;
 
-  const MovieItem(this.movie);
+  const MovieItem(this.movie, {super.key});
   @override
   Widget build(BuildContext context) {
     return ListTile(

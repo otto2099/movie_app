@@ -14,10 +14,12 @@ import 'package:movie_app/theme/change_theme.dart';
 Future<void> main() async {
   await dotenv.load(fileName: Enviroment.fileName);
   await GetStorage.init();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     final preferences = Get.put(ChangeTheme());

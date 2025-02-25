@@ -6,11 +6,11 @@ import 'package:movie_app/home/models/top_rated_model.dart';
 
 class SearchAPI {
   final debouncer = Debouncer(
-    duration: Duration(milliseconds: 500),
+    duration: const Duration(milliseconds: 500),
   );
 
   final StreamController<MovieModel> _suggestionSteamController =
-      new StreamController.broadcast();
+      StreamController.broadcast();
 
   Future<MovieModel> searchMovie(String query) async {
     var url = Uri.https(Enviroment.ulrBase, '3/search/movie', {

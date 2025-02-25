@@ -64,12 +64,12 @@ class TopRatedData {
   double voteAverage;
   int voteCount;
   get fullPathImg {
-    if (posterPath.isNotEmpty) return '${Enviroment.urlImage}${posterPath}';
+    if (posterPath.isNotEmpty) return '${Enviroment.urlImage}$posterPath';
     return 'https://i.stack.imgur.com/GNhxO.png';
   }
 
   get fullBackdropPath {
-    if (backdropPath.isNotEmpty) return '${Enviroment.urlImage}${backdropPath}';
+    if (backdropPath.isNotEmpty) return '${Enviroment.urlImage}$backdropPath';
     return 'https://i.stack.imgur.com/GNhxO.png';
   }
 
