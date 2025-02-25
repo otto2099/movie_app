@@ -1,16 +1,23 @@
-# movie_app
+# Movie App
 
-A new Flutter project.
+Movie App es una aplicación móvil construida con **Flutter** que permite a los usuarios explorar películas populares, mejor valoradas y realizar búsquedas en tiempo real. Además, incluye un sistema de cambio de tema entre claro y oscuro, y una interfaz optimizada utilizando el paquete **GetX** para la gestión de estado.
 
-## Getting Started
+## Características
 
-This project is a starting point for a Flutter application.
+- **Búsqueda en tiempo real**: Los usuarios pueden buscar películas y ver resultados inmediatamente a medida que escriben.
+- **Películas Populares**: Visualización de las películas más populares actualmente.
+- **Películas Mejor Valoradas**: Accede a la lista de películas mejor valoradas.
+- **Cambio de Tema**: Alterna entre modo claro y oscuro para mejorar la experiencia visual según preferencia.
+- **Interfaz fluida y moderna**: Utiliza la potencia de **GetX** para la gestión eficiente de estado y dependencias.
 
-A few resources to get you started if this is your first Flutter project:
+## Tecnologías Utilizadas
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- **Flutter**: Framework para crear interfaces de usuario de alta calidad.
+- **Dart**: Lenguaje utilizado para desarrollar la aplicación.
+- **GetX**: Para el manejo del estado y dependencias.
+- **StreamBuilder**: Para manejar flujos de datos reactivos en tiempo real.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Instalación
+
+Para ejecutar la aplicación en tu máquina local
+
